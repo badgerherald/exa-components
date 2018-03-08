@@ -20,31 +20,66 @@ declare global {
 
 
 import {
-  MyComponent as MyComponent
-} from './components/my-component/my-component';
+  ExaFootnotesPost as ExaFootnotesPost
+} from './components/exa-footnotes/exa-footnotes-post/exa-footnotes-post';
 
 declare global {
-  interface HTMLMyComponentElement extends MyComponent, HTMLStencilElement {
+  interface HTMLExaFootnotesPostElement extends ExaFootnotesPost, HTMLStencilElement {
   }
-  var HTMLMyComponentElement: {
-    prototype: HTMLMyComponentElement;
-    new (): HTMLMyComponentElement;
+  var HTMLExaFootnotesPostElement: {
+    prototype: HTMLExaFootnotesPostElement;
+    new (): HTMLExaFootnotesPostElement;
   };
   interface HTMLElementTagNameMap {
-    "my-component": HTMLMyComponentElement;
+    "exa-footnotes-post": HTMLExaFootnotesPostElement;
   }
   interface ElementTagNameMap {
-    "my-component": HTMLMyComponentElement;
+    "exa-footnotes-post": HTMLExaFootnotesPostElement;
   }
   namespace JSX {
     interface IntrinsicElements {
-      "my-component": JSXElements.MyComponentAttributes;
+      "exa-footnotes-post": JSXElements.ExaFootnotesPostAttributes;
     }
   }
   namespace JSXElements {
-    export interface MyComponentAttributes extends HTMLAttributes {
-      first?: string;
-      last?: string;
+    export interface ExaFootnotesPostAttributes extends HTMLAttributes {
+      imgsrc?: string;
+      subhead?: string;
+      title?: string;
+      url?: string;
+    }
+  }
+}
+
+
+import {
+  ExaCommentsFootnotes as ExaFootnotes
+} from './components/exa-footnotes/exa-footnotes';
+
+declare global {
+  interface HTMLExaFootnotesElement extends ExaFootnotes, HTMLStencilElement {
+  }
+  var HTMLExaFootnotesElement: {
+    prototype: HTMLExaFootnotesElement;
+    new (): HTMLExaFootnotesElement;
+  };
+  interface HTMLElementTagNameMap {
+    "exa-footnotes": HTMLExaFootnotesElement;
+  }
+  interface ElementTagNameMap {
+    "exa-footnotes": HTMLExaFootnotesElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      "exa-footnotes": JSXElements.ExaFootnotesAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface ExaFootnotesAttributes extends HTMLAttributes {
+      postid?: string;
+      tag_id?: string;
+      title?: string;
+      url?: string;
     }
   }
 }

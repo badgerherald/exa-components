@@ -1,7 +1,12 @@
+const sass = require('@stencil/sass');
+
 exports.config = {
-  namespace: 'mycomponent',
+  namespace: 'exa',
   generateDistribution: true,
-  serviceWorker: false
+  serviceWorker: false,
+  plugins: [
+  	sass()
+  ]
 };
 
 exports.devServer = {

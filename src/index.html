@@ -4,12 +4,34 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
   <title>Stencil Component Starter</title>
-  <script src="/build/mycomponent.js"></script>
+  <script>
+    /* <![CDATA[ */
+    var exa = {"api_url":"https://example.com/wp-json"};
+    /* ]]> */
+  </script>
+
+  <script src="/wpapi.js"></script>
+  <script src="/build/exa.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700" rel="stylesheet">
+  
+  <style> 	
+	body { background: #EFF4F7; } 
+	exa-comments-section {
+		width: 600px;
+		display: block;
+		margin: 80px 60px;
+	}
+  exa-footnotes {
+    display: block;
+    margin: 40px;
+  }
+  </style>
+  
 
 </head>
 <body>
 
-  <my-component first="Stencil" last="'Don't call me a framework' JS"></my-component>
+  <exa-footnotes tag_id="360" title="ArtsEtc" url="http://google.com"></exa-footnotes>
 
 </body>
 </html>
