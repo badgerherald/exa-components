@@ -1,0 +1,81 @@
+@import "src/assets/sass/foundations.scss";
+
+
+h1 {
+	font-family: $body;
+	font-style: italic;
+	font-size: 36px;
+	margin-bottom: 0px;
+	a {
+		color: $blue;
+		text-decoration: none;
+		&:hover {
+			color: $black;
+		}
+	} 
+}
+
+h2 {
+	font-family: $headline;
+	font-style: italic;
+	font-size: 36px;
+	a {
+		color: $blue;
+		&:hover {
+			color: $black;
+		}
+	}
+}
+
+ul {
+	list-style: none;
+	margin:0;
+	margin-top: 0px;
+	padding:0;
+	li {
+		color: $black;
+		border-top: 1px solid $greyBorder;
+		padding: 18px 0 3px;
+	}
+}
+
+
+@include breakpoint('tablet') {
+	h1 {
+		font-family: "noto serif";
+		font-style: italic;
+		font-size: 42px;
+	}
+	ul {
+		margin-top: 18px;
+		border-top: 1px solid $greyBorder;
+		li {
+			width: 380px;
+			margin: 0;
+			position: relative;
+			top: -1px;
+		}
+	}
+	ul li:first-child {
+		float: right;
+		width: 300px;
+	}
+}
+
+@include breakpoint('desktop') {
+	ul { 
+		max-width: 680px; 
+	}
+	ul li {
+		width: 300px;
+	}
+}
+
+@include breakpoint('xl') {
+	ul { 
+		max-width: 780px;
+	}
+	ul li {
+		width: 380px;
+	}
+}

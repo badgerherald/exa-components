@@ -1,86 +1,99 @@
 import { Component, Prop, State } from '@stencil/core';
 
-declare var WPAPI:any; // Magic
-declare var exa:any; // Magic
-
 @Component({
   tag: 'exa-footnotes',
   styleUrl: 'exa-footnotes.scss',
+  shadow: true,
 })
-export class ExaCommentsFootnotes {
+export class ExaFootnotes {
 
-  @Prop() postid: string;
-  @Prop() title: string;
-  @Prop() tag_id: string;
-  @Prop() url: string;
+  @Prop() postid: string
+  @Prop() shareurl: string
+  @Prop() shareheadline: string
 
-  @State() posts: Array<any>;
-
-  @State() imgLoaded: boolean = false;
-
-  componentDidLoad() {
-    if(this.posts != null) {
-      return;
-    }    
-    console.log("sup??");
-    var wp = new WPAPI({endpoint: exa.api_url})
-    console.log(wp)
-    console.log("sup?");
-    wp.posts().param('per_page','4').then(this.loadDidFinish.bind(this)).catch(this.loadDidFail.bind(this));
-  }
-
-  loadDidFinish( data ) {
-    this.posts = data;
-    console.log(this.posts);
-    console.log("sup!");
-    this.loadFeaturedMedia(this.posts[0]);
-  }
-
-  loadDidFail( err ) {
-    console.log(err);
-  }
-
-  loadFeaturedMedia( post ) {
-    if(!post.featured_media) {
-      console.log(post.featured_media);
-      return;
-    }
-    console.log(post.featured_media);
-
-    var wp = new WPAPI({endpoint: exa.api_url ,})
-
-    wp.media().id(post.featured_media).then(this.mediaLoadDidFinish.bind(this)).catch(this.mediaLoadDidFail.bind(this));    
-  }
-
-  mediaLoadDidFinish( data ) {
-    this.posts[0].imgsrc = data.media_details.sizes["post-thumbnail"].source_url;
-    this.imgLoaded = true;
-  }
-
-  mediaLoadDidFail( err ) {
-    console.log(err);
-  }
-
-  handleExpandClick(event) {
-    console.log(event)
-  }
+  @State() post: any
 
   render() {
-    console.log(this.posts);
-    if(this.posts == null) {
-      return;
-    }
+    console.log("here");
+    const services: Array<ExaSocialService> = ExaSocialServiceFactory.socialServices(this.shareurl,this.shareheadline);
     return (
       <div>
-        <h1>Next in <a href={this.url}>{this.title}</a></h1>
+        <exa-publish-time-meta published="March 04, 2018 21:24:00" modified="March 10, 2018 02:24:00"></exa-publish-time-meta>
         <ul>
-          {this.posts.map((post) => 
-              <li><exa-footnotes-post imgsrc={post.imgsrc} url={post.link} title={post.title.rendered} subhead={post.subhead ? post.subhead : post.excerpt.rendered}></exa-footnotes-post></li>
+          {services.map((service) => 
+            <li><exa-social-button shareurl={service.shareurl} title={service.name} classname={service.classname} description=""></exa-social-button></li>
           )}
         </ul>
+
       </div>
     );   
   } 
+}
 
+enum ExaSocialServices {
+  Facebook,
+  Twitter
+}
 
+abstract class ExaSocialService {
+  public abstract shareurl: string;
+  public abstract name: string;
+  public abstract classname: string;
+
+  protected articleUrl: string;
+  protected shareheadline: string;
+  constructor(articleUrl: string, shareheadline: string) {
+    this.articleUrl = articleUrl;
+    this.shareheadline = shareheadline;
+  }
+}
+
+class ExaSocialFacebook extends ExaSocialService {
+  public name: string = "Share";
+  public classname: string = "facebook";
+  public shareurl: string = "http://facebook.com/";
+
+  private fbShareUrl: string = "https://www.facebook.com/sharer/sharer.php"
+  constructor(articleUrl: string, shareheadline: string) {
+    super(articleUrl,shareheadline)
+    this.shareurl = this.fbShareUrl + 
+                      "?u=" + 
+                      this.articleUrl;
+
+  }
+}
+
+class ExaSocialTwitter extends ExaSocialService {
+  public name: string = "Tweet";
+  public classname: string = "twitter";
+  public shareurl: string = "http://twitter.com/";
+
+  private webIntentUrl: string = "https://twitter.com/intent/tweet"
+  constructor(articleUrl: string, shareheadline: string) {
+    super(articleUrl,shareheadline)
+    this.shareurl = this.webIntentUrl + 
+                      "?text=" + 
+                      this.shareheadline + 
+                      "&url=" + 
+                      this.articleUrl;
+
+  }
+}
+
+class ExaSocialServiceFactory {
+
+  static socialServices(articleUrl: string, shareheadline: string) {
+    var twitter = ExaSocialServiceFactory.socialService(ExaSocialServices.Twitter, articleUrl, shareheadline);
+    var fb =  ExaSocialServiceFactory.socialService(ExaSocialServices.Facebook, articleUrl, shareheadline);
+    return [fb, twitter]
+  }
+
+  static socialService(service: ExaSocialServices, articleUrl: string, shareheadline: string) {
+    switch (service) {
+      case ExaSocialServices.Facebook:
+        return new ExaSocialFacebook(articleUrl,shareheadline)
+      case ExaSocialServices.Twitter:
+        return new ExaSocialTwitter(articleUrl,shareheadline)
+    }
+  }
 }

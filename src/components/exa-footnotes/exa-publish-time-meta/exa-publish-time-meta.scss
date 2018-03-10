@@ -1,0 +1,11 @@
+@import 'src/assets/sass/foundations.scss';
+
+exa-publish-time-meta div {
+	margin-bottom: 24px;
+	margin-top: -18px;
+	font-family: $headline;
+	color: $greyText;
+	font-size: 18px;
+	position: relative;
+	line-height: 24px;
+}

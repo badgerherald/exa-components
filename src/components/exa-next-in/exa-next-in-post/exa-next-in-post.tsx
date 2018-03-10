@@ -1,8 +1,8 @@
 import { Component, Prop } from '@stencil/core';
 
 @Component({
-  tag: 'exa-footnotes-post',
-  styleUrl: 'exa-footnotes-post.scss',
+  tag: 'exa-next-in-post',
+  styleUrl: 'exa-next-in-post.scss',
 })
 export class ExaFootnotesPost {
 
