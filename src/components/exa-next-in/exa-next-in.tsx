@@ -29,8 +29,6 @@ export class ExaCommentsFootnotes {
 
   loadDidFinish( data ) {
     this.posts = data;
-    console.log(this.posts);
-    console.log("sup!");
     this.loadFeaturedMedia(this.posts[0]);
   }
 
@@ -40,13 +38,9 @@ export class ExaCommentsFootnotes {
 
   loadFeaturedMedia( post ) {
     if(!post.featured_media) {
-      console.log(post.featured_media);
       return;
     }
-    console.log(post.featured_media);
-
     var wp = new WPAPI({endpoint: exa.api_url ,})
-
     wp.media().id(post.featured_media).then(this.mediaLoadDidFinish.bind(this)).catch(this.mediaLoadDidFail.bind(this));    
   }
 
@@ -59,12 +53,7 @@ export class ExaCommentsFootnotes {
     console.log(err);
   }
 
-  handleExpandClick(event) {
-    console.log(event)
-  }
-
   render() {
-    console.log(this.posts);
     if(this.posts == null) {
       return;
     }
