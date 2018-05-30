@@ -1,0 +1,129 @@
+@import "src/assets/sass/foundations.scss";
+
+div.nameplate {
+	border-bottom: 5px solid $blue;
+	padding-bottom: 12px;
+    a.logo {
+	    width: flex(160, 300);
+	    height: auto;
+	    display: block;
+	    padding-right: flex(20, 300);
+		img {
+			height: 100%;
+			width: 100%;
+		}
+	}
+    div.menus {
+    	display: none;
+    	position: absolute;
+        background: white;
+        width: flex(310,300);
+        margin-left: flex(-5,300);
+        margin-top: 6px;
+        z-index: 9999;
+        &.active {
+        	display: block;
+        }
+        exa-menu {
+        	display: block;
+        	padding: flex(25,300) flex(25,300) 0 flex(25,300);
+    	}
+    	exa-search-form {
+    	 	padding-top: flex(25,300);
+    	 }
+    	exa-menu:last-child {
+    		padding-bottom: flex(60,300);
+    	}
+    	exa-menu.social {
+    		clear: right;
+    	}
+    }
+}
+
+
+@include breakpoint("tablet") {
+	div.nameplate.desktop {
+		position: relative;
+		margin-top: 12px;
+		a.logo {
+			width: flex(220, 740);
+			padding-right: flex(20, 740);
+		}
+		div.menus {
+	    	background: transparent;
+	    	display: block;
+	    	top: 0px;
+			height: 100%;
+			margin-left: flex(220, 740);
+			margin-top: 0px;
+			bottom: 20px;
+			padding: 0;
+			margin-top: -12px;
+			width: flex(520, 740);
+			exa-menu{
+				display: inline;
+				padding: 0;
+			}
+			exa-menu.primary {
+				position: absolute;
+				bottom: 0;
+				width: 100%;
+			}
+			exa-menu.secondary {
+	    	    float: right;
+	    	}
+	    	exa-menu.social {
+	    		float: right;
+	    	    height: 20px;
+	    	}
+	    	exa-search-form {
+	    		position: absolute;
+	    		width: 100%;
+	    		padding: 0;
+	    		right: 0;
+	    		bottom: 0;
+	    	}
+		}
+	}
+}
+
+@include breakpoint("tabletxl") {
+	div.nameplate.desktop {
+		a.logo {
+			max-width: 240px;
+			padding-right: flex(20, 880);
+		}
+		div.menus {
+			display: block;
+			margin-left: flex(240, 880);
+			width: flex(640, 880);
+		}
+	}
+}
+
+
+@include breakpoint("desktop") {
+	div.nameplate.desktop {
+		a.logo {
+			max-width: 240px;
+			padding-right: flex(20, 1060);
+		}
+		div.menus {
+			margin-left: flex(240, 1060);
+			width: flex(820, 1060);
+		}
+	}
+}
+
+@include breakpoint("xl") {
+	div.nameplate.desktop {
+		a.logo {
+			max-width: 240px;
+			padding-right: flex(20, 1220);
+		}
+		div.menus {
+			margin-left: flex(240, 1220);
+			width: flex(980, 1220);
+		}
+	}
+}

@@ -11,14 +11,16 @@ export class ExaFootnotes {
   @Prop() shareurl: string
   @Prop() shareheadline: string
 
+  @Prop() published: string
+  @Prop() modified: string
+
   @State() post: any
 
   render() {
-    console.log("here");
     const services: Array<ExaSocialService> = ExaSocialServiceFactory.socialServices(this.shareurl,this.shareheadline);
     return (
       <div>
-        <exa-publish-time-meta published="March 04, 2018 21:24:00" modified="March 10, 2018 02:24:00"></exa-publish-time-meta>
+        <exa-publish-time-meta published={this.published} modified={this.modified}></exa-publish-time-meta>
         <ul>
           {services.map((service) => 
             <li><exa-social-button shareurl={service.shareurl} title={service.name} classname={service.classname} description=""></exa-social-button></li>

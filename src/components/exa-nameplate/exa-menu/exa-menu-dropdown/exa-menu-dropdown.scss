@@ -1,0 +1,87 @@
+@import "src/assets/sass/foundations.scss";
+
+exa-menu-dropdown {
+	// Dropdown style:
+	& > div {
+		.clearfix {
+			clear: both;
+		}
+		position: absolute;
+		left: 0;
+		background: white;
+		width: 100%;
+		padding-bottom: 30px;
+		ul {
+			list-style-type: none;
+			margin: 0;
+			padding: 0;
+		}
+		h4 {
+			margin: 10px 0 0;
+			padding: 0px;
+			font-size: 24px;
+			padding: 10px flex(10,520) 10px;
+			border-bottom: 1px solid $grey;
+		}
+		.menu {
+			ul {
+				font-size: 16px;
+				line-height: 1.8em;
+				li {
+					a { 
+						display: block;
+						font-size: 16px;
+						padding: 0 flex(10,140);
+						margin-right: flex(10,140);
+						border-bottom: 1px solid $grey;
+						color: $black;
+						&:hover {
+							color: $blue;
+						}
+					}
+				}
+			}
+			float: left;
+			width: flex(140,520);
+			padding: 10px 0;
+		}
+		ul.teasers {
+			max-width: 100%;
+			width: flex(380,520);
+			display: block;
+			margin: 0;
+			float: left;
+			font-size: 18px;
+			li {
+				font-size: 1em;
+				float: right;
+				padding: 12px flex(20,520);
+				border-bottom: 1px solid $grey;
+				font-family: $headline;
+				a {
+					color: $black;
+					&:hover {
+						color: $blue;
+					}
+				}
+				img {
+					width: flex(220,520);
+					float:right;
+					padding-left: 10px;
+				}
+				p {
+
+				}
+			}
+		}
+	}
+}
+
+@include breakpoint('desktop') {
+	exa-menu-dropdown {
+		// Dropdown style:
+		& > div {
+			max-width: 720px;
+		}
+	}
+}

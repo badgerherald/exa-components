@@ -24,7 +24,7 @@ export class ExaCommentsFootnotes {
       return;
     }    
     var wp = new WPAPI({endpoint: exa.api_url})
-    wp.posts().param('per_page','4').then(this.loadDidFinish.bind(this)).catch(this.loadDidFail.bind(this));
+    wp.posts().param('per_page','4').categories(this.tag_id).then(this.loadDidFinish.bind(this)).catch(this.loadDidFail.bind(this));
   }
 
   loadDidFinish( data ) {
@@ -62,7 +62,7 @@ export class ExaCommentsFootnotes {
         <h1>Next in <a href={this.url}>{this.title}</a></h1>
         <ul>
           {this.posts.map((post) => 
-              <li><exa-next-in-post imgsrc={post.imgsrc} url={post.link} title={post.title.rendered} subhead={post.subhead ? post.subhead : post.excerpt.rendered}></exa-next-in-post></li>
+            <li><exa-teaser imgsrc={post.imgsrc} url={post.link} title={post.title.rendered} subhead={post.subhead ? post.subhead : post.excerpt.rendered}></exa-teaser></li>
           )}
         </ul>
       </div>

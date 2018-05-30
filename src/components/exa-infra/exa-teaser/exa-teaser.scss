@@ -1,0 +1,32 @@
+@import "src/assets/sass/foundations.scss";
+
+exa-teaser {
+	h3 {
+		font-family: 'pt sans narrow';
+		font-weight: bold !important;
+		font-size: .9em;
+		line-height: 1.1em;
+		margin: 0px;
+	}
+	p {
+		margin:9px 0 12px 0;
+		font-size: .9em;
+		line-height: 1.1em;
+		font-family: 'pt sans narrow';
+	}
+	a {
+		color: $black;
+		font-family: 'Pt sans narrow';
+		text-decoration: none;
+		&:hover {
+			color: $blue;
+		}
+	}
+	
+	a img {
+		width: 100%;
+		height: auto;
+		padding-bottom: 12px;
+	}
+}
+

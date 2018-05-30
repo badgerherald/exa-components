@@ -5,6 +5,10 @@ $base-line-height: 21px;
     @return ($px / $base) * 1em;
 }
 
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
 $image-ratio: 690/450;
 /*  Fonts */
 $headline: 	'PT Sans Narrow', Helvetica, Arial, Sans-Serif;
@@ -24,6 +28,7 @@ $truewhite: #fff;
 $trueblue: #0000ff;
 $truered: #ff0000;
 $truegreen:  #00ff00;
+$debug: rgba(0,0,0,.1);
 
 //blues
 $blue: #3c74b9;

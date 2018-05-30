@@ -1,0 +1,56 @@
+@import "src/assets/sass/foundations.scss";
+
+exa-menu-item {
+
+	& > li {
+		// Style dropdown links:
+		&:not(.social) > a {
+			padding: 0 6px;
+		}
+		&.dropdown > a {
+			padding-right: 22px;
+			&:after {
+				content: "d";
+				font-size: 12px;
+				padding-left: 2px;
+				transition: margin .1s;
+				font-family: $icon;
+				position: absolute;
+			}
+		}
+
+		// Showing the dropdown:
+		exa-menu-dropdown > div {
+			visibility: hidden;
+			transition: all .15s ease-in-out;
+			margin-top: -6px;
+		}
+		&:hover, &.debug {
+			exa-menu-dropdown > div {
+				visibility: visible;
+				margin-top: 0px;
+				transition: all .2s ease-in-out;
+				transition-delay:.15s;
+			}
+			&.dropdown a {
+				background: white;
+				& > a:after {
+					margin-top: 3px;
+				}
+			}
+			&.dropdown a > ul {
+				a { @include linkColor($black); }
+				display: block;
+				position: absolute;			
+				top: 100%;
+				min-width: 200px;
+				background: white;
+				list-style-type: none;
+				padding: 12px;
+				font-size: 18px;
+			}
+		}
+
+	}
+}
+

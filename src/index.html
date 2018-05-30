@@ -6,12 +6,12 @@
   <title>Stencil Component Starter</title>
   <script>
     /* <![CDATA[ */
-    var exa = {"api_url":"https://example.com/wp-json"};
+    var exa = { "api_url": "https://badgerherald.com/wp-json" };
     /* ]]> */
   </script>
 
-  <script src="/wpapi.js"></script>
-  <script src="/build/exa.js"></script>
+  <script src="../vendor/wpapi.js"></script>
+  <script src="../build/exa.js"></script>
   <link href="https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700" rel="stylesheet">
   
   <style> 	
@@ -31,7 +31,8 @@
 </head>
 <body>
 
-  <exa-footnotes tag_id="360" title="ArtsEtc" url="http://google.com"></exa-footnotes>
+  <exa-footnotes postid="<?php echo $post->ID; ?>"></exa-footnotes>
+  <exa-next-in tag_id="360" title="ArtsEtc" url="http://google.com"></exa-next-in>
 
 </body>
 </html>

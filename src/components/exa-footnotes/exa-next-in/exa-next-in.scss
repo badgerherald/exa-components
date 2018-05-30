@@ -5,6 +5,7 @@ h1 {
 	font-family: $body;
 	font-style: italic;
 	font-size: 36px;
+	line-height: 48px;
 	margin-bottom: 0px;
 	a {
 		color: $blue;
@@ -36,6 +37,7 @@ ul {
 		color: $black;
 		border-top: 1px solid $greyBorder;
 		padding: 18px 0 3px;
+		font-size: 1.7em;
 	}
 }
 

@@ -18,42 +18,15 @@ declare global {
   interface HTMLAttributes {}
 }
 
+import {
+  ExaMenuDirection,
+  ExaMenuDropdownStyle,
+  ExaMenuFontSize,
+  ExaMenuLinkColor,
+} from './components/exa-nameplate/exa-menu/exa-menu-style';
 
 import {
-  ExaFootnotesPost as ExaFootnotesPost
-} from './components/exa-footnotes/exa-footnotes-post/exa-footnotes-post';
-
-declare global {
-  interface HTMLExaFootnotesPostElement extends ExaFootnotesPost, HTMLStencilElement {
-  }
-  var HTMLExaFootnotesPostElement: {
-    prototype: HTMLExaFootnotesPostElement;
-    new (): HTMLExaFootnotesPostElement;
-  };
-  interface HTMLElementTagNameMap {
-    "exa-footnotes-post": HTMLExaFootnotesPostElement;
-  }
-  interface ElementTagNameMap {
-    "exa-footnotes-post": HTMLExaFootnotesPostElement;
-  }
-  namespace JSX {
-    interface IntrinsicElements {
-      "exa-footnotes-post": JSXElements.ExaFootnotesPostAttributes;
-    }
-  }
-  namespace JSXElements {
-    export interface ExaFootnotesPostAttributes extends HTMLAttributes {
-      imgsrc?: string;
-      subhead?: string;
-      title?: string;
-      url?: string;
-    }
-  }
-}
-
-
-import {
-  ExaCommentsFootnotes as ExaFootnotes
+  ExaFootnotes as ExaFootnotes
 } from './components/exa-footnotes/exa-footnotes';
 
 declare global {
@@ -76,10 +49,341 @@ declare global {
   }
   namespace JSXElements {
     export interface ExaFootnotesAttributes extends HTMLAttributes {
+      modified?: string;
+      postid?: string;
+      published?: string;
+      shareheadline?: string;
+      shareurl?: string;
+    }
+  }
+}
+
+
+import {
+  ExaCommentsFootnotes as ExaNextIn
+} from './components/exa-footnotes/exa-next-in/exa-next-in';
+
+declare global {
+  interface HTMLExaNextInElement extends ExaNextIn, HTMLStencilElement {
+  }
+  var HTMLExaNextInElement: {
+    prototype: HTMLExaNextInElement;
+    new (): HTMLExaNextInElement;
+  };
+  interface HTMLElementTagNameMap {
+    "exa-next-in": HTMLExaNextInElement;
+  }
+  interface ElementTagNameMap {
+    "exa-next-in": HTMLExaNextInElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      "exa-next-in": JSXElements.ExaNextInAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface ExaNextInAttributes extends HTMLAttributes {
       postid?: string;
       tag_id?: string;
       title?: string;
       url?: string;
+    }
+  }
+}
+
+
+import {
+  ExaPublishTimeMeta as ExaPublishTimeMeta
+} from './components/exa-footnotes/exa-publish-time-meta/exa-publish-time-meta';
+
+declare global {
+  interface HTMLExaPublishTimeMetaElement extends ExaPublishTimeMeta, HTMLStencilElement {
+  }
+  var HTMLExaPublishTimeMetaElement: {
+    prototype: HTMLExaPublishTimeMetaElement;
+    new (): HTMLExaPublishTimeMetaElement;
+  };
+  interface HTMLElementTagNameMap {
+    "exa-publish-time-meta": HTMLExaPublishTimeMetaElement;
+  }
+  interface ElementTagNameMap {
+    "exa-publish-time-meta": HTMLExaPublishTimeMetaElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      "exa-publish-time-meta": JSXElements.ExaPublishTimeMetaAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface ExaPublishTimeMetaAttributes extends HTMLAttributes {
+      modified?: string;
+      published?: string;
+    }
+  }
+}
+
+
+import {
+  ExaSocialButton as ExaSocialButton
+} from './components/exa-footnotes/exa-social-button/exa-social-button';
+
+declare global {
+  interface HTMLExaSocialButtonElement extends ExaSocialButton, HTMLStencilElement {
+  }
+  var HTMLExaSocialButtonElement: {
+    prototype: HTMLExaSocialButtonElement;
+    new (): HTMLExaSocialButtonElement;
+  };
+  interface HTMLElementTagNameMap {
+    "exa-social-button": HTMLExaSocialButtonElement;
+  }
+  interface ElementTagNameMap {
+    "exa-social-button": HTMLExaSocialButtonElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      "exa-social-button": JSXElements.ExaSocialButtonAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface ExaSocialButtonAttributes extends HTMLAttributes {
+      classname?: string;
+      description?: string;
+      shareurl?: string;
+      title?: string;
+    }
+  }
+}
+
+
+import {
+  ExaFootnotesPost as ExaTeaser
+} from './components/exa-infra/exa-teaser/exa-teaser';
+
+declare global {
+  interface HTMLExaTeaserElement extends ExaTeaser, HTMLStencilElement {
+  }
+  var HTMLExaTeaserElement: {
+    prototype: HTMLExaTeaserElement;
+    new (): HTMLExaTeaserElement;
+  };
+  interface HTMLElementTagNameMap {
+    "exa-teaser": HTMLExaTeaserElement;
+  }
+  interface ElementTagNameMap {
+    "exa-teaser": HTMLExaTeaserElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      "exa-teaser": JSXElements.ExaTeaserAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface ExaTeaserAttributes extends HTMLAttributes {
+      imgsrc?: string;
+      subhead?: string;
+      title?: string;
+      url?: string;
+    }
+  }
+}
+
+
+import {
+  ExaMenuButton as ExaMenuButton
+} from './components/exa-nameplate/exa-menu/exa-menu-button/exa-menu-button';
+
+declare global {
+  interface HTMLExaMenuButtonElement extends ExaMenuButton, HTMLStencilElement {
+  }
+  var HTMLExaMenuButtonElement: {
+    prototype: HTMLExaMenuButtonElement;
+    new (): HTMLExaMenuButtonElement;
+  };
+  interface HTMLElementTagNameMap {
+    "exa-menu-button": HTMLExaMenuButtonElement;
+  }
+  interface ElementTagNameMap {
+    "exa-menu-button": HTMLExaMenuButtonElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      "exa-menu-button": JSXElements.ExaMenuButtonAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface ExaMenuButtonAttributes extends HTMLAttributes {
+      active?: boolean;
+    }
+  }
+}
+
+
+import {
+  ExaMenuDropdown as ExaMenuDropdown
+} from './components/exa-nameplate/exa-menu/exa-menu-dropdown/exa-menu-dropdown';
+
+declare global {
+  interface HTMLExaMenuDropdownElement extends ExaMenuDropdown, HTMLStencilElement {
+  }
+  var HTMLExaMenuDropdownElement: {
+    prototype: HTMLExaMenuDropdownElement;
+    new (): HTMLExaMenuDropdownElement;
+  };
+  interface HTMLElementTagNameMap {
+    "exa-menu-dropdown": HTMLExaMenuDropdownElement;
+  }
+  interface ElementTagNameMap {
+    "exa-menu-dropdown": HTMLExaMenuDropdownElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      "exa-menu-dropdown": JSXElements.ExaMenuDropdownAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface ExaMenuDropdownAttributes extends HTMLAttributes {
+      menuItems?: Array<any>;
+      posts?: Array<any>;
+      subhead?: string;
+      title?: string;
+      url?: string;
+    }
+  }
+}
+
+
+import {
+  ExaMenuItem as ExaMenuItem
+} from './components/exa-nameplate/exa-menu/exa-menu-item/exa-menu-item';
+
+declare global {
+  interface HTMLExaMenuItemElement extends ExaMenuItem, HTMLStencilElement {
+  }
+  var HTMLExaMenuItemElement: {
+    prototype: HTMLExaMenuItemElement;
+    new (): HTMLExaMenuItemElement;
+  };
+  interface HTMLElementTagNameMap {
+    "exa-menu-item": HTMLExaMenuItemElement;
+  }
+  interface ElementTagNameMap {
+    "exa-menu-item": HTMLExaMenuItemElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      "exa-menu-item": JSXElements.ExaMenuItemAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface ExaMenuItemAttributes extends HTMLAttributes {
+      category?: number;
+      childmenuitems?: Array<any>;
+      debug?: boolean;
+      dropdownStyle?: ExaMenuDropdownStyle;
+      iconClass?: string;
+      title?: string;
+      url?: string;
+    }
+  }
+}
+
+
+import {
+  ExaMenu as ExaMenu
+} from './components/exa-nameplate/exa-menu/exa-menu';
+
+declare global {
+  interface HTMLExaMenuElement extends ExaMenu, HTMLStencilElement {
+  }
+  var HTMLExaMenuElement: {
+    prototype: HTMLExaMenuElement;
+    new (): HTMLExaMenuElement;
+  };
+  interface HTMLElementTagNameMap {
+    "exa-menu": HTMLExaMenuElement;
+  }
+  interface ElementTagNameMap {
+    "exa-menu": HTMLExaMenuElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      "exa-menu": JSXElements.ExaMenuAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface ExaMenuAttributes extends HTMLAttributes {
+      debug?: boolean;
+      menuDirection?: ExaMenuDirection;
+      menuDropdown?: ExaMenuDropdownStyle;
+      menuFontSize?: ExaMenuFontSize;
+      menuId?: string;
+      menuLinkColor?: ExaMenuLinkColor;
+      tag_id?: string;
+      title?: string;
+    }
+  }
+}
+
+
+import {
+  ExaSearchForm as ExaSearchForm
+} from './components/exa-nameplate/exa-menu/exa-search-form/exa-search-form';
+
+declare global {
+  interface HTMLExaSearchFormElement extends ExaSearchForm, HTMLStencilElement {
+  }
+  var HTMLExaSearchFormElement: {
+    prototype: HTMLExaSearchFormElement;
+    new (): HTMLExaSearchFormElement;
+  };
+  interface HTMLElementTagNameMap {
+    "exa-search-form": HTMLExaSearchFormElement;
+  }
+  interface ElementTagNameMap {
+    "exa-search-form": HTMLExaSearchFormElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      "exa-search-form": JSXElements.ExaSearchFormAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface ExaSearchFormAttributes extends HTMLAttributes {
+      
+    }
+  }
+}
+
+
+import {
+  ExaNameplate as ExaNameplate
+} from './components/exa-nameplate/exa-nameplate';
+
+declare global {
+  interface HTMLExaNameplateElement extends ExaNameplate, HTMLStencilElement {
+  }
+  var HTMLExaNameplateElement: {
+    prototype: HTMLExaNameplateElement;
+    new (): HTMLExaNameplateElement;
+  };
+  interface HTMLElementTagNameMap {
+    "exa-nameplate": HTMLExaNameplateElement;
+  }
+  interface ElementTagNameMap {
+    "exa-nameplate": HTMLExaNameplateElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      "exa-nameplate": JSXElements.ExaNameplateAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface ExaNameplateAttributes extends HTMLAttributes {
+      primaryMenu?: number;
+      searchQuery?: string;
+      secondaryMenu?: number;
+      socialMenu?: number;
     }
   }
 }
