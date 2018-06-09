@@ -117,10 +117,11 @@ export class ExaNameplate {
   }
 
   render() {
+    console.log(exa);
     return(
       <div class={this.isMobile ? "nameplate" : "nameplate desktop"}>
         <a class="logo" href="https://badgerherald.com/">
-          <img src={exa.themedir + "/js/components/svg/vertical-herald-logo.png" } />
+          <img src={exa.builddir + "/svg/vertical-herald-logo.png" } />
         </a>
         {this.renderMobileMenuButton()}
         <div class={this.menuOpen ? "menus active" : "menus"}>
