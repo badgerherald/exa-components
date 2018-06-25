@@ -4,35 +4,26 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
   <title>Stencil Component Starter</title>
-  <script>
+  <script type='text/javascript'>
     /* <![CDATA[ */
-    var exa = { "api_url": "https://badgerherald.com/wp-json" };
+    var exa = {"api_url":"http:\/\/badgerherald.test\/wp-json","builddir":"http:\/\/badgerherald.test\/app"};
     /* ]]> */
-  </script>
+    </script>
 
-  <script src="../vendor/wpapi.js"></script>
-  <script src="../build/exa.js"></script>
+  <script src="/wordpress/wp-content/themes/exa/js/vendor/wpapi.min.js?ver=1529851626"></script>
+  <script src="build/exa.js"></script>
   <link href="https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700" rel="stylesheet">
   
   <style> 	
 	body { background: #EFF4F7; } 
-	exa-comments-section {
-		width: 600px;
-		display: block;
-		margin: 80px 60px;
-	}
-  exa-footnotes {
-    display: block;
-    margin: 40px;
-  }
   </style>
-  
+
+
 
 </head>
 <body>
 
-  <exa-footnotes postid="<?php echo $post->ID; ?>"></exa-footnotes>
-  <exa-next-in tag_id="360" title="ArtsEtc" url="http://google.com"></exa-next-in>
+  <exa-nameplate id="nameplate" primary-menu="418" secondary-menu="1845" social-menu="8418" is-mobile="true"></exa-nameplate>
 
 </body>
 </html>
