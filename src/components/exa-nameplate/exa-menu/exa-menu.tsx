@@ -1,9 +1,7 @@
 import { Component, Prop, State } from '@stencil/core';
 import { ExaMenuDirection, ExaMenuLinkColor, ExaMenuFontSize, ExaMenuDropdownStyle } from './exa-menu-style'
 import { WPAPI } from '../../../global/wpapi'
-
-declare var WPAPI : WPAPI;
-
+declare var WPAPI : WPAPI 
 
 declare var exa:any; // Magic
 

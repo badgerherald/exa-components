@@ -10,7 +10,7 @@
 export interface WPAPI {
     
     
-    new(options : any) : WPAPI;
+    new(options : any);
 
     registerRoute( namespace: string, restBase: string)
     registerRoute( namespace: string, restBase: string, options: any)
