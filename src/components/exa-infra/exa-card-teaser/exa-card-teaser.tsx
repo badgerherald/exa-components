@@ -1,12 +1,10 @@
 import { Component, Prop } from '@stencil/core';
 
 @Component({
-  tag: 'exa-teaser',
-  styleUrl: 'exa-teaser.scss',
+  tag: 'exa-card-teaser',
+  styleUrl: 'exa-card-teaser.scss',
 })
-export class ExaTeaser {
-
-  @Prop() postid: number;
+export class ExaCardTeaser {
 
   @Prop() title: string;
   @Prop() subhead: string;

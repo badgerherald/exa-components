@@ -1,6 +1,5 @@
 const sass = require('@stencil/sass');
 
-
 exports.config = {
 	namespace: 'exa',
 	srcDir: 'src',
@@ -14,4 +13,5 @@ exports.config = {
 	plugins: [
 		sass()
 	],
+	
 };

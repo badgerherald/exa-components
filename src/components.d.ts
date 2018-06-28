@@ -157,7 +157,40 @@ declare global {
 
 
 import {
-  ExaFootnotesPost as ExaTeaser
+  ExaCardTeaser as ExaCardTeaser
+} from './components/exa-infra/exa-card-teaser/exa-card-teaser';
+
+declare global {
+  interface HTMLExaCardTeaserElement extends ExaCardTeaser, HTMLStencilElement {
+  }
+  var HTMLExaCardTeaserElement: {
+    prototype: HTMLExaCardTeaserElement;
+    new (): HTMLExaCardTeaserElement;
+  };
+  interface HTMLElementTagNameMap {
+    "exa-card-teaser": HTMLExaCardTeaserElement;
+  }
+  interface ElementTagNameMap {
+    "exa-card-teaser": HTMLExaCardTeaserElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      "exa-card-teaser": JSXElements.ExaCardTeaserAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface ExaCardTeaserAttributes extends HTMLAttributes {
+      imgsrc?: string;
+      subhead?: string;
+      title?: string;
+      url?: string;
+    }
+  }
+}
+
+
+import {
+  ExaTeaser as ExaTeaser
 } from './components/exa-infra/exa-teaser/exa-teaser';
 
 declare global {
@@ -181,6 +214,7 @@ declare global {
   namespace JSXElements {
     export interface ExaTeaserAttributes extends HTMLAttributes {
       imgsrc?: string;
+      postid?: number;
       subhead?: string;
       title?: string;
       url?: string;
