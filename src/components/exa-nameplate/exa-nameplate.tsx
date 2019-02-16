@@ -1,5 +1,5 @@
 import { Component, Prop, State,Listen } from '@stencil/core';
-import { ExaMenuFontSize, ExaMenuLinkColor, ExaMenuDirection, ExaMenuDropdownStyle } from './exa-menu/exa-menu-style'
+import { ExaMenuFontSize, ExaMenuLinkColor, ExaMenuDirection, ExaMenuDropdownStyle } from './../exa-menu/exa-menu-style'
 
 declare var exa:any; // Magic
 

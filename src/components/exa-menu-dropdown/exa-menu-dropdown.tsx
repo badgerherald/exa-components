@@ -1,6 +1,5 @@
 import { Component, Prop, State } from '@stencil/core';
 
-declare var WPAPI:any; // Magic
 declare var exa:any; // Magic
 
 @Component({

@@ -18,7 +18,8 @@
   },
   "include": [
     "src",
-    "types/jsx.d.ts"
+    "types/jsx.d.ts",
+    "./src/global/wpapi.d.ts"
   ],
   "exclude": [
     "node_modules"

@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "Components collection for http://github.com/badgerherald/exa",
   "main": "dist/exa.js",
-  "types": ["dist/types/index.d.ts","src/global/wpapi.d.ts" ],
+  "types":"dist/types/index.d.ts",
   "collection": "components/collection-manifest.json",
   "files": [
     "dist/"

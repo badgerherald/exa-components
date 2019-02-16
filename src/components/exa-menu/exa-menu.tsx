@@ -1,7 +1,5 @@
 import { Component, Prop, State } from '@stencil/core';
 import { ExaMenuDirection, ExaMenuLinkColor, ExaMenuFontSize, ExaMenuDropdownStyle } from './exa-menu-style'
-import { WPAPI } from '../../../global/wpapi'
-declare var WPAPI : WPAPI 
 
 declare var exa:any; // Magic
 
@@ -13,7 +11,7 @@ export class ExaMenu {
 
   @Prop() title: string
   @Prop() tag_id: string
-  @Prop() menuId: string
+  @Prop() menuId: number
   @Prop() debug: boolean
 
   @Prop() menuDirection: ExaMenuDirection
@@ -29,8 +27,8 @@ export class ExaMenu {
       return;
     }    
     var wp = new WPAPI({endpoint: exa.api_url})
-    wp.menus = wp.registerRoute( 'wp-api-menus/v2', '/menus/(?P<id>)' );
-    wp.menus().id(this.menuId).then(this.loadDidFinish.bind(this)).catch(this.loadDidFail.bind(this));
+    const menuRoute = wp.registerRoute( 'wp-api-menus/v2', '/menus/(?P<id>)' );
+    menuRoute.id(this.menuId).then(this.loadDidFinish.bind(this)).catch(this.loadDidFail.bind(this));
   }
 
   loadDidFinish( data) {

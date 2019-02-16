@@ -23,7 +23,40 @@ import {
   ExaMenuDropdownStyle,
   ExaMenuFontSize,
   ExaMenuLinkColor,
-} from './components/exa-nameplate/exa-menu/exa-menu-style';
+} from './components/exa-menu/exa-menu-style';
+
+import {
+  ExaCardTeaser as ExaCardTeaser
+} from './components/exa-card-teaser/exa-card-teaser';
+
+declare global {
+  interface HTMLExaCardTeaserElement extends ExaCardTeaser, HTMLStencilElement {
+  }
+  var HTMLExaCardTeaserElement: {
+    prototype: HTMLExaCardTeaserElement;
+    new (): HTMLExaCardTeaserElement;
+  };
+  interface HTMLElementTagNameMap {
+    "exa-card-teaser": HTMLExaCardTeaserElement;
+  }
+  interface ElementTagNameMap {
+    "exa-card-teaser": HTMLExaCardTeaserElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      "exa-card-teaser": JSXElements.ExaCardTeaserAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface ExaCardTeaserAttributes extends HTMLAttributes {
+      imgsrc?: string;
+      subhead?: string;
+      title?: string;
+      url?: string;
+    }
+  }
+}
+
 
 import {
   ExaFootnotes as ExaFootnotes
@@ -60,172 +93,8 @@ declare global {
 
 
 import {
-  ExaCommentsFootnotes as ExaNextIn
-} from './components/exa-footnotes/exa-next-in/exa-next-in';
-
-declare global {
-  interface HTMLExaNextInElement extends ExaNextIn, HTMLStencilElement {
-  }
-  var HTMLExaNextInElement: {
-    prototype: HTMLExaNextInElement;
-    new (): HTMLExaNextInElement;
-  };
-  interface HTMLElementTagNameMap {
-    "exa-next-in": HTMLExaNextInElement;
-  }
-  interface ElementTagNameMap {
-    "exa-next-in": HTMLExaNextInElement;
-  }
-  namespace JSX {
-    interface IntrinsicElements {
-      "exa-next-in": JSXElements.ExaNextInAttributes;
-    }
-  }
-  namespace JSXElements {
-    export interface ExaNextInAttributes extends HTMLAttributes {
-      postid?: string;
-      tag_id?: string;
-      title?: string;
-      url?: string;
-    }
-  }
-}
-
-
-import {
-  ExaPublishTimeMeta as ExaPublishTimeMeta
-} from './components/exa-footnotes/exa-publish-time-meta/exa-publish-time-meta';
-
-declare global {
-  interface HTMLExaPublishTimeMetaElement extends ExaPublishTimeMeta, HTMLStencilElement {
-  }
-  var HTMLExaPublishTimeMetaElement: {
-    prototype: HTMLExaPublishTimeMetaElement;
-    new (): HTMLExaPublishTimeMetaElement;
-  };
-  interface HTMLElementTagNameMap {
-    "exa-publish-time-meta": HTMLExaPublishTimeMetaElement;
-  }
-  interface ElementTagNameMap {
-    "exa-publish-time-meta": HTMLExaPublishTimeMetaElement;
-  }
-  namespace JSX {
-    interface IntrinsicElements {
-      "exa-publish-time-meta": JSXElements.ExaPublishTimeMetaAttributes;
-    }
-  }
-  namespace JSXElements {
-    export interface ExaPublishTimeMetaAttributes extends HTMLAttributes {
-      modified?: string;
-      published?: string;
-    }
-  }
-}
-
-
-import {
-  ExaSocialButton as ExaSocialButton
-} from './components/exa-footnotes/exa-social-button/exa-social-button';
-
-declare global {
-  interface HTMLExaSocialButtonElement extends ExaSocialButton, HTMLStencilElement {
-  }
-  var HTMLExaSocialButtonElement: {
-    prototype: HTMLExaSocialButtonElement;
-    new (): HTMLExaSocialButtonElement;
-  };
-  interface HTMLElementTagNameMap {
-    "exa-social-button": HTMLExaSocialButtonElement;
-  }
-  interface ElementTagNameMap {
-    "exa-social-button": HTMLExaSocialButtonElement;
-  }
-  namespace JSX {
-    interface IntrinsicElements {
-      "exa-social-button": JSXElements.ExaSocialButtonAttributes;
-    }
-  }
-  namespace JSXElements {
-    export interface ExaSocialButtonAttributes extends HTMLAttributes {
-      classname?: string;
-      description?: string;
-      shareurl?: string;
-      title?: string;
-    }
-  }
-}
-
-
-import {
-  ExaCardTeaser as ExaCardTeaser
-} from './components/exa-infra/exa-card-teaser/exa-card-teaser';
-
-declare global {
-  interface HTMLExaCardTeaserElement extends ExaCardTeaser, HTMLStencilElement {
-  }
-  var HTMLExaCardTeaserElement: {
-    prototype: HTMLExaCardTeaserElement;
-    new (): HTMLExaCardTeaserElement;
-  };
-  interface HTMLElementTagNameMap {
-    "exa-card-teaser": HTMLExaCardTeaserElement;
-  }
-  interface ElementTagNameMap {
-    "exa-card-teaser": HTMLExaCardTeaserElement;
-  }
-  namespace JSX {
-    interface IntrinsicElements {
-      "exa-card-teaser": JSXElements.ExaCardTeaserAttributes;
-    }
-  }
-  namespace JSXElements {
-    export interface ExaCardTeaserAttributes extends HTMLAttributes {
-      imgsrc?: string;
-      subhead?: string;
-      title?: string;
-      url?: string;
-    }
-  }
-}
-
-
-import {
-  ExaTeaser as ExaTeaser
-} from './components/exa-infra/exa-teaser/exa-teaser';
-
-declare global {
-  interface HTMLExaTeaserElement extends ExaTeaser, HTMLStencilElement {
-  }
-  var HTMLExaTeaserElement: {
-    prototype: HTMLExaTeaserElement;
-    new (): HTMLExaTeaserElement;
-  };
-  interface HTMLElementTagNameMap {
-    "exa-teaser": HTMLExaTeaserElement;
-  }
-  interface ElementTagNameMap {
-    "exa-teaser": HTMLExaTeaserElement;
-  }
-  namespace JSX {
-    interface IntrinsicElements {
-      "exa-teaser": JSXElements.ExaTeaserAttributes;
-    }
-  }
-  namespace JSXElements {
-    export interface ExaTeaserAttributes extends HTMLAttributes {
-      imgsrc?: string;
-      postid?: number;
-      subhead?: string;
-      title?: string;
-      url?: string;
-    }
-  }
-}
-
-
-import {
   ExaMenuButton as ExaMenuButton
-} from './components/exa-nameplate/exa-menu/exa-menu-button/exa-menu-button';
+} from './components/exa-menu-button/exa-menu-button';
 
 declare global {
   interface HTMLExaMenuButtonElement extends ExaMenuButton, HTMLStencilElement {
@@ -255,7 +124,7 @@ declare global {
 
 import {
   ExaMenuDropdown as ExaMenuDropdown
-} from './components/exa-nameplate/exa-menu/exa-menu-dropdown/exa-menu-dropdown';
+} from './components/exa-menu-dropdown/exa-menu-dropdown';
 
 declare global {
   interface HTMLExaMenuDropdownElement extends ExaMenuDropdown, HTMLStencilElement {
@@ -289,7 +158,7 @@ declare global {
 
 import {
   ExaMenuItem as ExaMenuItem
-} from './components/exa-nameplate/exa-menu/exa-menu-item/exa-menu-item';
+} from './components/exa-menu-item/exa-menu-item';
 
 declare global {
   interface HTMLExaMenuItemElement extends ExaMenuItem, HTMLStencilElement {
@@ -325,7 +194,7 @@ declare global {
 
 import {
   ExaMenu as ExaMenu
-} from './components/exa-nameplate/exa-menu/exa-menu';
+} from './components/exa-menu/exa-menu';
 
 declare global {
   interface HTMLExaMenuElement extends ExaMenu, HTMLStencilElement {
@@ -351,40 +220,10 @@ declare global {
       menuDirection?: ExaMenuDirection;
       menuDropdown?: ExaMenuDropdownStyle;
       menuFontSize?: ExaMenuFontSize;
-      menuId?: string;
+      menuId?: number;
       menuLinkColor?: ExaMenuLinkColor;
       tag_id?: string;
       title?: string;
-    }
-  }
-}
-
-
-import {
-  ExaSearchForm as ExaSearchForm
-} from './components/exa-nameplate/exa-menu/exa-search-form/exa-search-form';
-
-declare global {
-  interface HTMLExaSearchFormElement extends ExaSearchForm, HTMLStencilElement {
-  }
-  var HTMLExaSearchFormElement: {
-    prototype: HTMLExaSearchFormElement;
-    new (): HTMLExaSearchFormElement;
-  };
-  interface HTMLElementTagNameMap {
-    "exa-search-form": HTMLExaSearchFormElement;
-  }
-  interface ElementTagNameMap {
-    "exa-search-form": HTMLExaSearchFormElement;
-  }
-  namespace JSX {
-    interface IntrinsicElements {
-      "exa-search-form": JSXElements.ExaSearchFormAttributes;
-    }
-  }
-  namespace JSXElements {
-    export interface ExaSearchFormAttributes extends HTMLAttributes {
-      
     }
   }
 }
@@ -418,6 +257,167 @@ declare global {
       searchQuery?: string;
       secondaryMenu?: number;
       socialMenu?: number;
+    }
+  }
+}
+
+
+import {
+  ExaCommentsFootnotes as ExaNextIn
+} from './components/exa-next-in/exa-next-in';
+
+declare global {
+  interface HTMLExaNextInElement extends ExaNextIn, HTMLStencilElement {
+  }
+  var HTMLExaNextInElement: {
+    prototype: HTMLExaNextInElement;
+    new (): HTMLExaNextInElement;
+  };
+  interface HTMLElementTagNameMap {
+    "exa-next-in": HTMLExaNextInElement;
+  }
+  interface ElementTagNameMap {
+    "exa-next-in": HTMLExaNextInElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      "exa-next-in": JSXElements.ExaNextInAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface ExaNextInAttributes extends HTMLAttributes {
+      postid?: string;
+      tag_id?: string;
+      title?: string;
+      url?: string;
+    }
+  }
+}
+
+
+import {
+  ExaPublishTimeMeta as ExaPublishTimeMeta
+} from './components/exa-publish-time-meta/exa-publish-time-meta';
+
+declare global {
+  interface HTMLExaPublishTimeMetaElement extends ExaPublishTimeMeta, HTMLStencilElement {
+  }
+  var HTMLExaPublishTimeMetaElement: {
+    prototype: HTMLExaPublishTimeMetaElement;
+    new (): HTMLExaPublishTimeMetaElement;
+  };
+  interface HTMLElementTagNameMap {
+    "exa-publish-time-meta": HTMLExaPublishTimeMetaElement;
+  }
+  interface ElementTagNameMap {
+    "exa-publish-time-meta": HTMLExaPublishTimeMetaElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      "exa-publish-time-meta": JSXElements.ExaPublishTimeMetaAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface ExaPublishTimeMetaAttributes extends HTMLAttributes {
+      modified?: string;
+      published?: string;
+    }
+  }
+}
+
+
+import {
+  ExaSearchForm as ExaSearchForm
+} from './components/exa-search-form/exa-search-form';
+
+declare global {
+  interface HTMLExaSearchFormElement extends ExaSearchForm, HTMLStencilElement {
+  }
+  var HTMLExaSearchFormElement: {
+    prototype: HTMLExaSearchFormElement;
+    new (): HTMLExaSearchFormElement;
+  };
+  interface HTMLElementTagNameMap {
+    "exa-search-form": HTMLExaSearchFormElement;
+  }
+  interface ElementTagNameMap {
+    "exa-search-form": HTMLExaSearchFormElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      "exa-search-form": JSXElements.ExaSearchFormAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface ExaSearchFormAttributes extends HTMLAttributes {
+      
+    }
+  }
+}
+
+
+import {
+  ExaSocialButton as ExaSocialButton
+} from './components/exa-social-button/exa-social-button';
+
+declare global {
+  interface HTMLExaSocialButtonElement extends ExaSocialButton, HTMLStencilElement {
+  }
+  var HTMLExaSocialButtonElement: {
+    prototype: HTMLExaSocialButtonElement;
+    new (): HTMLExaSocialButtonElement;
+  };
+  interface HTMLElementTagNameMap {
+    "exa-social-button": HTMLExaSocialButtonElement;
+  }
+  interface ElementTagNameMap {
+    "exa-social-button": HTMLExaSocialButtonElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      "exa-social-button": JSXElements.ExaSocialButtonAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface ExaSocialButtonAttributes extends HTMLAttributes {
+      classname?: string;
+      description?: string;
+      shareurl?: string;
+      title?: string;
+    }
+  }
+}
+
+
+import {
+  ExaTeaser as ExaTeaser
+} from './components/exa-teaser/exa-teaser';
+
+declare global {
+  interface HTMLExaTeaserElement extends ExaTeaser, HTMLStencilElement {
+  }
+  var HTMLExaTeaserElement: {
+    prototype: HTMLExaTeaserElement;
+    new (): HTMLExaTeaserElement;
+  };
+  interface HTMLElementTagNameMap {
+    "exa-teaser": HTMLExaTeaserElement;
+  }
+  interface ElementTagNameMap {
+    "exa-teaser": HTMLExaTeaserElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      "exa-teaser": JSXElements.ExaTeaserAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface ExaTeaserAttributes extends HTMLAttributes {
+      imgsrc?: string;
+      postid?: number;
+      subhead?: string;
+      title?: string;
+      url?: string;
     }
   }
 }

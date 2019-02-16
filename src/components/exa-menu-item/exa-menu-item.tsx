@@ -1,5 +1,5 @@
 import { Component, Prop, State } from '@stencil/core';
-import { ExaMenuDropdownStyle } from '../exa-menu-style'
+import { ExaMenuDropdownStyle } from '../exa-menu/exa-menu-style'
 
 declare var WPAPI:any; // Magic
 declare var exa:any; // Magic
