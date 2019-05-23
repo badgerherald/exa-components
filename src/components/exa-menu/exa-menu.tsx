@@ -27,8 +27,9 @@ export class ExaMenu {
       return;
     }    
     var wp = new WPAPI({endpoint: exa.api_url})
-    const menuRoute = wp.registerRoute( 'wp-api-menus/v2', '/menus/(?P<id>)' );
-    menuRoute.id(this.menuId).then(this.loadDidFinish.bind(this)).catch(this.loadDidFail.bind(this));
+    // fragile right now, it's typed as a defined route, but needs this line to be a registered API registered:
+    wp.menus = wp.registerRoute( 'wp-api-menus/v2', '/menus/(?P<id>)' );
+    wp.menus().id(this.menuId).then(this.loadDidFinish.bind(this)).catch(this.loadDidFail.bind(this));
   }
 
   loadDidFinish( data) {
@@ -78,6 +79,7 @@ export class ExaMenu {
     }
     return (
       <menu class={this.menuClasses()}>
+      <exa-breakpoint></exa-breakpoint>
         {this.menu.items.map((menuItem,i) => 
             <exa-menu-item childmenuitems={menuItem.children} debug={ this.debug && i==0 } url={menuItem.url} title={menuItem.title} dropdownStyle={this.menuDropdown} category={menuItem.object_id} iconClass={menuItem.classes}></exa-menu-item>
         )}

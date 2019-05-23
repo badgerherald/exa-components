@@ -1,5 +1,7 @@
-import { Component, Prop, State,Listen } from '@stencil/core';
+import { Component, Prop, State,Element } from '@stencil/core';
 import { ExaMenuFontSize, ExaMenuLinkColor, ExaMenuDirection, ExaMenuDropdownStyle } from './../exa-menu/exa-menu-style'
+import { BreakpointTunnel } from './../../data/breakpoint'
+import { ExaHeraldBreakpoint, ExaContainer } from '../..';
 
 declare var exa:any; // Magic
 
@@ -8,34 +10,22 @@ declare var exa:any; // Magic
   styleUrl: 'exa-nameplate.scss',
   shadow: true,
 })
-export class ExaNameplate {  
+export class ExaNameplate implements ExaContainer {  
 
+  @Prop() breakpoint: ExaHeraldBreakpoint
+  @Element() el : Element
+
+  @Prop() columns: number;
   @Prop() primaryMenu: number;
   @Prop() secondaryMenu: number;
   @Prop() socialMenu: number;
-
-  @State() isMobile: boolean;
 
   @Prop() searchQuery: string;
 
   @State() menuOpen: boolean = false;
 
-  @Listen('window:resize')
-  handleScroll() {
-    const screenWidth = (window.innerWidth > 0) ? window.innerWidth : screen.width;
-    if(screenWidth < 760) {
-      this.isMobile = true;
-    } else {
-      this.isMobile = false;
-    }
-  }
-
-  componentDidLoad() {
-    this.handleScroll()
-  }
-
   renderPrimaryMenu() {
-    if(this.isMobile) {
+    if(this.breakpoint == ExaHeraldBreakpoint.mobile) {
       return(
         <exa-menu class="primary" 
                   menu-id={this.primaryMenu} 
@@ -57,7 +47,7 @@ export class ExaNameplate {
   }
 
   renderSecondaryMenu() {
-    if(this.isMobile) {
+    if(this.breakpoint == ExaHeraldBreakpoint.mobile) {
       return(
         <exa-menu class="secondary" 
                   menu-id={this.secondaryMenu} 
@@ -79,7 +69,7 @@ export class ExaNameplate {
   }
 
   renderSocialMenu() {
-    if(this.isMobile) {
+    if(this.breakpoint == ExaHeraldBreakpoint.mobile) {
       return(
         <exa-menu class="social" 
                   menu-id={this.socialMenu} 
@@ -111,7 +101,8 @@ export class ExaNameplate {
   }
 
   renderMobileMenuButton() {
-    if(this.isMobile) {
+    console.log(this.breakpoint)
+    if(this.breakpoint == ExaHeraldBreakpoint.mobile) {
       return(<exa-menu-button active={this.menuOpen} onClick={() => this.toggleMenu()}></exa-menu-button>)
     }
   }
@@ -119,7 +110,7 @@ export class ExaNameplate {
   render() {
     console.log(exa);
     return(
-      <div class={this.isMobile ? "nameplate" : "nameplate desktop"}>
+      <div class={this.breakpoint == ExaHeraldBreakpoint.mobile? "nameplate" : "nameplate desktop"}>
         <a class="logo" href="https://badgerherald.com/">
           <img src={exa.builddir + "/svg/vertical-herald-logo.png" } />
         </a>
@@ -137,3 +128,4 @@ export class ExaNameplate {
   } 
 }
 
+BreakpointTunnel.injectProps(ExaNameplate, ['breakpoint']);

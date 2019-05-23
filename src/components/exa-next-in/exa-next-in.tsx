@@ -1,4 +1,5 @@
 import { Component, Prop, State } from '@stencil/core';
+import { ExaPost } from '../../global/ExaMedia'
 
 declare var WPAPI:any; // Magic
 declare var exa:any; // Magic
@@ -15,7 +16,7 @@ export class ExaCommentsFootnotes {
   @Prop() tag_id: string;
   @Prop() url: string;
 
-  @State() posts: Array<any>;
+  @State() posts: ExaPost[];
 
   @State() imgLoaded: boolean = false;
 
@@ -27,29 +28,11 @@ export class ExaCommentsFootnotes {
     wp.posts().param('per_page','4').categories(this.tag_id).then(this.loadDidFinish.bind(this)).catch(this.loadDidFail.bind(this));
   }
 
-  loadDidFinish( data ) {
-    this.posts = data;
-    this.loadFeaturedMedia(this.posts[0]);
+  loadDidFinish(data: WPPost[]) {
+    this.posts = ExaPost.fromList(data)
   }
 
-  loadDidFail( err ) {
-    console.log(err);
-  }
-
-  loadFeaturedMedia( post ) {
-    if(!post.featured_media) {
-      return;
-    }
-    var wp = new WPAPI({endpoint: exa.api_url ,})
-    wp.media().id(post.featured_media).then(this.mediaLoadDidFinish.bind(this)).catch(this.mediaLoadDidFail.bind(this));    
-  }
-
-  mediaLoadDidFinish( data ) {
-    this.posts[0].imgsrc = data.media_details.sizes["post-thumbnail"].source_url;
-    this.imgLoaded = true;
-  }
-
-  mediaLoadDidFail( err ) {
+  loadDidFail(err) {
     console.log(err);
   }
 
@@ -62,12 +45,10 @@ export class ExaCommentsFootnotes {
         <h1>Next in <a href={this.url}>{this.title}</a></h1>
         <ul>
           {this.posts.map((post) => 
-            <li><exa-teaser imgsrc={post.imgsrc} url={post.link} title={post.title.rendered} subhead={post.subhead ? post.subhead : post.excerpt.rendered}></exa-teaser></li>
+            <li><exa-teaser post={post}></exa-teaser></li>
           )}
         </ul>
       </div>
     );   
   } 
-
-
 }

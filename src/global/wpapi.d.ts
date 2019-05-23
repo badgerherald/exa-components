@@ -6,51 +6,116 @@
 export {};
 declare global {
     class WPAPI { 
-    constructor(options : exa.WPAPI_Options);
+        constructor(options : exa.WPAPI_Options);
   
-    registerRoute( namespace: string, restBase: string) : exa.WPRequest 
-    registerRoute( namespace: string, restBase: string, options: any): exa.WPRequest 
-  
-  //   menus() : exa.WPRequest
-    posts() : exa.WPRequest
-    media() : exa.WPRequest
-  } 
-  
-  export namespace exa {
+        registerRoute( namespace: string, restBase: string) : () => exa.WPRequest<any>
+        registerRoute( namespace: string, restBase: string, options: any): () => exa.WPRequest<any>
+        
+        menus() : exa.WPRequest<any>
+        posts() : exa.WPRequest<WPPost[]>
+        media() : exa.WPRequest<any>
+    } 
+
+    class WPResponse<T> extends Array<T> {
+        private _paging
+    }
+    interface WPPost {
+        author : string
+        modified: string
+        subhead: string
+        featured_media: number
+        content : {
+            rendered: string
+        }
+        title: {
+            rendered: string
+        }
+    }
+
+    interface WPMedia {
+        alt_text: string
+        author: number
+        caption: WPRenderable
+        date: string
+        date_gmt: string 
+        description: WPRenderable
+        guid: WPRenderable
+        id: number 
+        link: string
+        media_details: {
+            file: string
+            height: number 
+            width: number 
+            image_meta: {
+                aperture: string
+                credit: string,
+                camera: string,
+                caption: string,
+                copyright: string,
+                created_timestamp: string,
+               
+                focal_length: string,
+                iso: string 
+                keywords: []
+                orientation: string
+                shutter_speed: string
+                title: string
+            }
+            sizes: {
+                file,
+                width : number,
+                height : number,
+                source_url
+            }[],
+        }
+        media_type: string,
+        mime_type: "image/jpeg",
+        modified: string 
+        source_url: string
+        modified_gmt: string
+        
+    }
+
+    interface WPRenderable {
+        rendered: string
+    }
+
+}
+export namespace exa {
     class WPAPI_Options {
         public endpoint : string;
     }
-  
-    interface WPRequest extends Promise<any> {
+
+    interface WPRequest<T> extends Promise<T> {
         constructor(options : {
             endpoint: String, 
             transport: Object,
             username?:String,
             password?:String,
-            nonce?:String})
+            nonce?:String}) 
         
         toString() : string
-        setPathPart(level : Number,val: Number|string) : WPRequest
-        validatePath() : WPRequest
-        param(props:String|Object, value:String|Number|Array<any>): WPRequest
+        setPathPart(level : Number,val: Number|string) : WPRequest<any>
+        validatePath() : WPRequest<any>
+        param(props:String|Object, value:String|Number|Array<any>): WPRequest<any>
   
         // convenience
-        slug(slug : string): WPRequest;
-        author(author : string): WPRequest;
-        status(status : string|Array<string>): WPRequest;
-        search(query : string): WPRequest;
-        before(date : Date): WPRequest;
-        after(date : Date): WPRequest;
-        sticky(isSticky : boolean): WPRequest;
-        id(id : number): WPRequest;
-        categories(id : number): WPRequest;
+        slug(slug : string): WPRequest<any>;
+        author(author : string): WPRequest<any>;
+        status(status : string|Array<string>): WPRequest<any>;
+        search(query : string): WPRequest<any>;
+        before(date : Date): WPRequest<any>;
+        after(date : Date): WPRequest<any>;
+        sticky(isSticky : boolean): WPRequest<any>;
+        id(id : number): WPRequest<any>;
+        categories(id : number): WPRequest<any>;
   
         // paging & sorting
-        perPage(perPage : number): WPRequest
-        page(page : number): WPRequest;
-        order(ord : string): WPRequest;
-        orderby(str : string): WPRequest;
+        perPage(perPage : number): WPRequest<any>
+        page(page : number): WPRequest<any>;
+        order(ord : string): WPRequest<any>;
+        orderby(str : string): WPRequest<any>;
     }
-  }
-  }
+}
+
   

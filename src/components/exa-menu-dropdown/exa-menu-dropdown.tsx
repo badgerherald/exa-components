@@ -1,4 +1,5 @@
 import { Component, Prop, State } from '@stencil/core';
+import { ExaPost } from '../../global/ExaMedia'
 
 declare var exa:any; // Magic
 
@@ -10,7 +11,7 @@ export class ExaMenuDropdown {
 
   @Prop() title: string;
   @Prop() menuItems: Array<any>;
-  @Prop() posts: Array<any> = new Array();
+  @Prop() posts: Array<ExaPost> = new Array();
   @Prop() subhead: string;
   @Prop() url: string;
 
@@ -65,7 +66,7 @@ export class ExaMenuDropdown {
         </div>
         <ul class="teasers">
           {this.posts.map((post) => 
-            <li><exa-teaser imgsrc={post.imgsrc} url={post.link} title={post.title.rendered} subhead={post.subhead ? post.subhead : post.excerpt.rendered}></exa-teaser></li>
+            <li><exa-teaser post={post}></exa-teaser></li>
           )}
         </ul>
         <div class="clearfix"></div>
