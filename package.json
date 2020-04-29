@@ -22,7 +22,7 @@
     "@stencil/sass": "^0.2.1",
     "@stencil/state-tunnel": "0.0.8",
     "exa": "^0.3.1",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "node-sass": "^4.12.0",
     "wpapi": "^1.2.1"
   },
